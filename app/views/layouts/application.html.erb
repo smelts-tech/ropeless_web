@@ -1,17 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>RopelessWeb</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="Header">
+      <div class="Header-item">
+        <a href="#" class="Header-link f4 d-flex flex-items-center">
+          <%= image_tag "smelts-logo.png", class: "mr-2" %>
+          <span>Smelts</span>
+        </a>
+      </div>
+      <% if user_signed_in? %>
+        <div class="Header-item">
+          <input type="search" class="form-control input-dark" />
+        </div>
+        <div class="Header-item">
+          Fishers
+        </div>
+      <% end %>
+    </div>
+    <% if flash.keys.any? %>
+    <div class="container-lg mt-2">
+      <div class="col-12">
+        <% if flash[:notice] %>
+          <p class="flash flash-warn"><%= flash[:notice] %></p>
+        <% end %>
+        <% if flash[:alert] %>
+          <p class="flash flash-error"><%= flash[:alert] %></p>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

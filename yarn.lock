@@ -845,6 +845,20 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@primer/css@^15.1.0":
+  version "15.1.0"
+  resolved "https://registry.yarnpkg.com/@primer/css/-/css-15.1.0.tgz#8158724f8709a2d09b36b6f7f4ff8b2e62725290"
+  integrity sha512-UmmfjwA26FhOGBMuAfJQOBeRHz9YUcw7khPtifp7K+VyTDEhLnJPRTdApxtivH69vHTkSJ3rh/W1gWYolrLgVA==
+  dependencies:
+    "@primer/octicons" "^9.1.1"
+
+"@primer/octicons@^9.1.1":
+  version "9.6.0"
+  resolved "https://registry.yarnpkg.com/@primer/octicons/-/octicons-9.6.0.tgz#e195f2dd5f30b6918ad5d8ff224c12f778d02408"
+  integrity sha512-B5Wzk5izRXXz0JqEXJkVUtqhCXSpUKgqYkVwegMkp5sziBW+ksd9LPbONlCWyyLODwf9GsI2sBXekR7m+JJDBw==
+  dependencies:
+    object-assign "^4.1.1"
+
 "@rails/actioncable@^6.0.0":
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.0.3.tgz#722b4b639936129307ddbab3a390f6bcacf3e7bc"
