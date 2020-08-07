@@ -10,11 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_022437) do
+ActiveRecord::Schema.define(version: 2020_08_07_022633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
+
+  create_table "devices", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "dt"
+    t.string "mac_address", limit: 40
+    t.string "vessel_id"
+    t.geography "geom", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dt"], name: "index_devices_on_dt"
+    t.index ["geom"], name: "index_devices_on_geom", using: :gist
+    t.index ["user_id"], name: "index_devices_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

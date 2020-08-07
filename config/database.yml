@@ -23,6 +23,7 @@ default: &default
 
 development:
   <<: *default
+  adapter: postgis
   database: ropeless_web_development
 
   # The specified database role being used to connect to postgres.
@@ -78,8 +79,6 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
 production:
-  <<: *default
-  database: ropeless_web_production
-  username: ropeless_web
-  password: <%= ENV['ROPELESS_WEB_DATABASE_PASSWORD'] %>
+  url: <%= ENV.fetch("DATABASE_URL", "").gsub(/postgres/, 'postgis') %>
