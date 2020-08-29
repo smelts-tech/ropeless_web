@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+User.create(email: "rob.sterner@gmail.com", password: "password123") # rob
+User.create(email: "rgrimard@gmail.com", password: "password123") # ryan
+User.create(email: "admin-user@smelts.org", password: "password123") # smelts admin
+
+
+if Device.count > 0
+  Fisher.destroy_all
+
+  puts "randomizing ownership of device records..."
+
+  Device.all.in_groups_of(5) do |devices|
+    rando_fisher = Fisher.create(name: Faker::Internet.name, license_number: SecureRandom.hex(10), email: Faker::Internet.email)
+    devices.each { |d| d.update(fisher: rando_fisher) }
+  end
+end
