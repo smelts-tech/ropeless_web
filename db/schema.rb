@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 2020_08_29_190648) do
     t.datetime "dt"
     t.string "modem_id"
     t.geography "geom", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
-    t.string "vessel_id"
     t.string "md5_hash", limit: 32, null: false
     t.string "event_type", limit: 30
     t.string "altitude", limit: 10
