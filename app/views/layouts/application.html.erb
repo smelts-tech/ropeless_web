@@ -17,17 +17,12 @@
           <span>Smelts</span>
         </a>
       </div>
-      <% if current_user_admin? %>
+      <% if user_signed_in? %>
         <div class="Header-item">
           <input type="search" class="form-control input-dark" placeholder="permit number" />
         </div>
         <div class="Header-item">
           Fishers
-        </div>
-      <% end %>
-      <% if current_user_fisher? %>
-        <div class="Header-item">
-          Upload file
         </div>
       <% end %>
     </div>

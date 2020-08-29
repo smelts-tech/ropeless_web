@@ -1,6 +1,6 @@
 <div class="container-lg mt-4">
   <div class="col-6 offset-3">
-    <h2>Log in</h2>
+    <h2>Admin Log in</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group<%= resource.errors[:email].any? ? " errored" : "" %>">

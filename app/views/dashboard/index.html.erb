@@ -4,3 +4,57 @@
 
   </div>
 </div>
+
+<div class="container-lg mt-4 d-flex">
+  <div class="col-6">
+    <div class="Box">
+      <div class="Box-header">
+        <h3 class="Box-title">
+          Fishers
+        </h3>
+      </div>
+      <ul>
+        <% @fishers.each do |fisher| %>
+          <li class="Box-row d-flex flex-items-center">
+            <div class="flex-auto">
+              <strong><%= fisher.name %></strong>
+              <div class="text-small text-gray-light">
+                <%= pluralize(fisher.devices.count, "device") %> uploaded
+              </div>
+            </div>
+            <%= link_to "View", fisher_path(fisher), class: "btn btn-primary" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="col-6 ml-2">
+    <div class="Box">
+      <div class="Box-header">
+        <h3 class="Box-title">
+          Devices
+        </h3>
+      </div>
+      <ul>
+        <% @devices.each do |device| %>
+          <li class="Box-row d-flex flex-items-center">
+            <div class="flex-auto">
+              <div class="text-small text-gray-light">
+                <p class="mb-0"><strong>Fisher</strong>: <%= link_to device.fisher.name, fisher_path(device.fisher) %></p>
+                <p class="mb-0"><strong>Latitude</strong>: <%= device.geom.latitude %></p>
+                <p class="mb-0"><strong>Longitude</strong>: <%= device.geom.longitude %></p>
+                <% if device.depth %>
+                  <p class="mb-0"><strong>Depth</strong>: <%= device.depth || "N/A" %></p>
+                <% end %>
+                <% if device.altitude %>
+                  <p class="mb-0"><strong>Altitude</strong>: <%= device.altitude || "N/A" %></p>
+                <% end %>
+                <p class="mb-0"><strong>Record created</strong>: <%= time_ago_in_words(device.created_at) %> ago</p>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
