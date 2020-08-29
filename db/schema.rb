@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 2020_08_07_022633) do
 
   create_table "devices", force: :cascade do |t|
     t.bigint "user_id"
+  create_table "device_uploads", force: :cascade do |t|
+    t.bigint "fisher_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["fisher_id"], name: "index_device_uploads_on_fisher_id"
+  end
+
     t.datetime "dt"
     t.string "mac_address", limit: 40
     t.string "vessel_id"
