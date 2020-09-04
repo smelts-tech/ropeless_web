@@ -24,6 +24,8 @@
           <li class="Box-row d-flex flex-items-center">
             <div class="flex-auto">
               <div class="text-small text-gray-light">
+                <p class="mb-0"><strong>Event Type</strong>: <%= device.event_type %></p>
+                <p class="mb-0"><strong>Modem ID</strong>: <%= device.modem_id %></p>
                 <p class="mb-0"><strong>Latitude</strong>: <%= device.geom.latitude %></p>
                 <p class="mb-0"><strong>Longitude</strong>: <%= device.geom.longitude %></p>
                 <% if device.depth %>
