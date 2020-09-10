@@ -41,6 +41,8 @@
             <div class="flex-auto">
               <div class="text-small text-gray-light">
                 <p class="mb-0"><strong>Fisher</strong>: <%= link_to device.fisher.name, fisher_path(device.fisher) %></p>
+                <p class="mb-0"><strong>Event Type</strong>: <%= device.event_type %></p>
+                <p class="mb-0"><strong>Modem ID</strong>: <%= device.modem_id %></p>
                 <p class="mb-0"><strong>Latitude</strong>: <%= device.geom.latitude %></p>
                 <p class="mb-0"><strong>Longitude</strong>: <%= device.geom.longitude %></p>
                 <% if device.depth %>
@@ -49,7 +51,8 @@
                 <% if device.altitude %>
                   <p class="mb-0"><strong>Altitude</strong>: <%= device.altitude || "N/A" %></p>
                 <% end %>
-                <p class="mb-0"><strong>Record created</strong>: <%= time_ago_in_words(device.created_at) %> ago</p>
+                <p class="mb-0"><strong>Device Event time</strong>: <%= device.dt %> ago</p>
+                <p class="mb-0"><strong>Upload time</strong>: <%= time_ago_in_words(device.created_at) %> ago</p>
               </div>
             </div>
           </li>
