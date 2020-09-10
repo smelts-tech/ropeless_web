@@ -34,7 +34,7 @@
                 <% if device.altitude %>
                   <p class="mb-0"><strong>Altitude</strong>: <%= device.altitude || "N/A" %></p>
                 <% end %>
-                <p class="mb-0"><strong>Device Event time</strong>: <%= device.dt %> ago</p>
+                <p class="mb-0"><strong>Device Event time</strong>: <%= device.dt %></p>
                 <p class="mb-0"><strong>Upload time</strong>: <%= time_ago_in_words(device.created_at) %> ago</p>
               </div>
             </div>
