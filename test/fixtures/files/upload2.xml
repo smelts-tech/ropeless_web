@@ -36,4 +36,114 @@
     <FisherName>smelts</FisherName>
     <FisherPermitNumber>0</FisherPermitNumber>
   </item>
+  <item>
+    <Name>1</Name>
+    <Type>Set Data</Type>
+    <Latitude>41.865077</Latitude>
+    <Longitude>-70.559719</Longitude>
+    <CreationDateAndTime>2020-10-05T15:36:59Z</CreationDateAndTime>
+    <FisherName>smelts</FisherName>
+    <FisherPermitNumber>0</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>1</Name>
+    <Type>Retrieval Data</Type>
+    <Latitude>41.865100</Latitude>
+    <Longitude>-70.559674</Longitude>
+    <CreationDateAndTime>2020-10-05T15:39:27Z</CreationDateAndTime>
+    <FisherName>smelts</FisherName>
+    <FisherPermitNumber>0</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>1</Name>
+    <Type>Set Data</Type>
+    <Latitude>41.865115</Latitude>
+    <Longitude>-70.559672</Longitude>
+    <CreationDateAndTime>2020-10-05T15:42:27Z</CreationDateAndTime>
+    <FisherName>smelts</FisherName>
+    <FisherPermitNumber>0</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>1</Name>
+    <Type>Retrieval Data</Type>
+    <Latitude>41.865099</Latitude>
+    <Longitude>-70.559702</Longitude>
+    <CreationDateAndTime>2020-10-05T15:45:34Z</CreationDateAndTime>
+    <FisherName>smelts</FisherName>
+    <FisherPermitNumber>0</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>4</Name>
+    <Type>Subsea Data</Type>
+    <Latitude>41.973812</Latitude>
+    <Longitude>-70.297112</Longitude>
+    <Depth>37.7</Depth>
+    <CreationDateAndTime>2020-10-06T11:01:13Z</CreationDateAndTime>
+    <FisherName>smelts</FisherName>
+    <FisherPermitNumber>0</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>4</Name>
+    <Type>Retrieval Data</Type>
+    <Latitude>41.973723</Latitude>
+    <Longitude>-70.296890</Longitude>
+    <CreationDateAndTime>2020-10-06T11:09:20Z</CreationDateAndTime>
+    <FisherName>smelts</FisherName>
+    <FisherPermitNumber>0</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>2</Name>
+    <Type>Set Data</Type>
+    <Latitude>41.973778</Latitude>
+    <Longitude>-70.296436</Longitude>
+    <CreationDateAndTime>2020-10-06T11:34:49Z</CreationDateAndTime>
+    <FisherName>smelts</FisherName>
+    <FisherPermitNumber>0</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>2</Name>
+    <Type>Retrieval Data</Type>
+    <Latitude>41.973659</Latitude>
+    <Longitude>-70.296341</Longitude>
+    <CreationDateAndTime>2020-10-06T11:44:45Z</CreationDateAndTime>
+    <FisherName>smelts</FisherName>
+    <FisherPermitNumber>0</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>2</Name>
+    <Type>Set Data</Type>
+    <Latitude>41.973654</Latitude>
+    <Longitude>-70.296340</Longitude>
+    <CreationDateAndTime>2020-10-06T11:46:27Z</CreationDateAndTime>
+    <FisherName>smelts</FisherName>
+    <FisherPermitNumber>0</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>4</Name>
+    <Type>Set Data</Type>
+    <Latitude>41.973665</Latitude>
+    <Longitude>-70.296723</Longitude>
+    <CreationDateAndTime>2020-10-06T11:11:21Z</CreationDateAndTime>
+    <FisherName>smelts</FisherName>
+    <FisherPermitNumber>0</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>4</Name>
+    <Type>Subsea Data</Type>
+    <Latitude>41.973635</Latitude>
+    <Longitude>-70.296559</Longitude>
+    <Depth>41.2</Depth>
+    <CreationDateAndTime>2020-10-06T11:25:35Z</CreationDateAndTime>
+    <FisherName>smelts</FisherName>
+    <FisherPermitNumber>0</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>4</Name>
+    <Type>Retrieval Data</Type>
+    <Latitude>41.973342</Latitude>
+    <Longitude>-70.295374</Longitude>
+    <CreationDateAndTime>2020-10-06T11:27:12Z</CreationDateAndTime>
+    <FisherName>smelts</FisherName>
+    <FisherPermitNumber>0</FisherPermitNumber>
+  </item>
 </FishingData>
