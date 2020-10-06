@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FishingData>
+  <item>
+    <Name>104</Name>
+    <Type>Set Data</Type>
+    <Latitude>34.478090</Latitude>
+    <Longitude>-123.113993</Longitude>
+    <CreationDateAndTime>2020-07-31T18:54:01Z</CreationDateAndTime>
+    <FisherName>Rusty Shackleford</FisherName>
+    <FisherPermitNumber>8675309</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>104</Name>
+    <Type>Retrieval Data</Type>
+    <Latitude>34.471635</Latitude>
+    <Longitude>-123.113170</Longitude>
+    <CreationDateAndTime>2020-07-31T18:58:08Z</CreationDateAndTime>
+    <FisherName>Rusty Shackleford</FisherName>
+    <FisherPermitNumber>8675309</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>100</Name>
+    <Type>Set Data</Type>
+    <Latitude>34.476312</Latitude>
+    <Longitude>-123.115937</Longitude>
+    <CreationDateAndTime>2020-07-31T18:09:22Z</CreationDateAndTime>
+    <FisherName>Rusty Shackleford</FisherName>
+    <FisherPermitNumber>8675309</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>100</Name>
+    <Type>Subsea Data</Type>
+    <Latitude>34.474997</Latitude>
+    <Longitude>-123.112005</Longitude>
+    <Depth>1449.0</Depth>
+    <CreationDateAndTime>2020-07-31T18:56:55Z</CreationDateAndTime>
+    <FisherName>Rusty Shackleford</FisherName>
+    <FisherPermitNumber>8675309</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>100</Name>
+    <Type>Retrieval Data</Type>
+    <Latitude>34.471635</Latitude>
+    <Longitude>-123.110830</Longitude>
+    <CreationDateAndTime>2020-07-31T18:58:24Z</CreationDateAndTime>
+    <FisherName>Rusty Shackleford</FisherName>
+    <FisherPermitNumber>8675309</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>101</Name>
+    <Type>Set Data</Type>
+    <Latitude>34.475608</Latitude>
+    <Longitude>-123.107818</Longitude>
+    <CreationDateAndTime>2020-07-31T19:02:07Z</CreationDateAndTime>
+    <FisherName>Rusty Shackleford</FisherName>
+    <FisherPermitNumber>8675309</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>101</Name>
+    <Type>Retrieval Data</Type>
+    <Latitude>34.478467</Latitude>
+    <Longitude>-123.111408</Longitude>
+    <CreationDateAndTime>2020-07-31T19:02:43Z</CreationDateAndTime>
+    <FisherName>Rusty Shackleford</FisherName>
+    <FisherPermitNumber>8675309</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>102</Name>
+    <Type>Set Data</Type>
+    <Latitude>34.478467</Latitude>
+    <Longitude>-123.111408</Longitude>
+    <CreationDateAndTime>2020-07-31T18:53:41Z</CreationDateAndTime>
+    <FisherName>Rusty Shackleford</FisherName>
+    <FisherPermitNumber>8675309</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>102</Name>
+    <Type>Retrieval Data</Type>
+    <Latitude>34.478423</Latitude>
+    <Longitude>-123.112883</Longitude>
+    <CreationDateAndTime>2020-07-31T19:02:53Z</CreationDateAndTime>
+    <FisherName>Rusty Shackleford</FisherName>
+    <FisherPermitNumber>8675309</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>100</Name>
+    <Type>Set Data</Type>
+    <Latitude>34.472032</Latitude>
+    <Longitude>-123.109750</Longitude>
+    <CreationDateAndTime>2020-07-31T18:58:33Z</CreationDateAndTime>
+    <FisherName>Rusty Shackleford</FisherName>
+    <FisherPermitNumber>8675309</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>100</Name>
+    <Type>Subsea Data</Type>
+    <Latitude>34.475013</Latitude>
+    <Longitude>-123.112018</Longitude>
+    <Depth>1449.2</Depth>
+    <CreationDateAndTime>2020-07-31T19:01:49Z</CreationDateAndTime>
+    <FisherName>Rusty Shackleford</FisherName>
+    <FisherPermitNumber>8675309</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>101</Name>
+    <Type>Set Data</Type>
+    <Latitude>34.477682</Latitude>
+    <Longitude>-123.114728</Longitude>
+    <CreationDateAndTime>2020-07-31T19:03:06Z</CreationDateAndTime>
+    <FisherName>Rusty Shackleford</FisherName>
+    <FisherPermitNumber>8675309</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>103</Name>
+    <Type>Set Data</Type>
+    <Latitude>34.476535</Latitude>
+    <Longitude>-123.108183</Longitude>
+    <CreationDateAndTime>2020-07-31T19:02:14Z</CreationDateAndTime>
+    <FisherName>Rusty Shackleford</FisherName>
+    <FisherPermitNumber>8675309</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>104</Name>
+    <Type>Set Data</Type>
+    <Latitude>34.478090</Latitude>
+    <Longitude>-123.110007</Longitude>
+    <CreationDateAndTime>2020-07-31T19:02:32Z</CreationDateAndTime>
+    <FisherName>Rusty Shackleford</FisherName>
+    <FisherPermitNumber>8675309</FisherPermitNumber>
+  </item>
+</FishingData>

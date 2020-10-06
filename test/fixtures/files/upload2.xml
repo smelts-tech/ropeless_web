@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FishingData>
+  <item>
+    <Name>1</Name>
+    <Type>Set Data</Type>
+    <Latitude>41.865077</Latitude>
+    <Longitude>-70.559719</Longitude>
+    <CreationDateAndTime>2020-10-05T15:36:59Z</CreationDateAndTime>
+    <FisherName>smelts</FisherName>
+    <FisherPermitNumber>0</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>1</Name>
+    <Type>Retrieval Data</Type>
+    <Latitude>41.865100</Latitude>
+    <Longitude>-70.559674</Longitude>
+    <CreationDateAndTime>2020-10-05T15:39:27Z</CreationDateAndTime>
+    <FisherName>smelts</FisherName>
+    <FisherPermitNumber>0</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>1</Name>
+    <Type>Set Data</Type>
+    <Latitude>41.865115</Latitude>
+    <Longitude>-70.559672</Longitude>
+    <CreationDateAndTime>2020-10-05T15:42:27Z</CreationDateAndTime>
+    <FisherName>smelts</FisherName>
+    <FisherPermitNumber>0</FisherPermitNumber>
+  </item>
+  <item>
+    <Name>1</Name>
+    <Type>Retrieval Data</Type>
+    <Latitude>41.865099</Latitude>
+    <Longitude>-70.559702</Longitude>
+    <CreationDateAndTime>2020-10-05T15:45:34Z</CreationDateAndTime>
+    <FisherName>smelts</FisherName>
+    <FisherPermitNumber>0</FisherPermitNumber>
+  </item>
+</FishingData>
