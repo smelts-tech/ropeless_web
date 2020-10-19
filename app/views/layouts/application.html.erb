@@ -12,10 +12,10 @@
   <body>
     <div class="Header">
       <div class="Header-item">
-        <a href="#" class="Header-link f4 d-flex flex-items-center">
+        <%= link_to root_path, class: "Header-link f4 d-flex flex-items-center" do %>
           <%= image_tag "smelts-logo.png", class: "mr-2" %>
           <span>Smelts</span>
-        </a>
+        <% end %>
       </div>
       <% if user_signed_in? %>
         <div class="Header-item">
