@@ -22,7 +22,8 @@
           <input type="search" class="form-control input-dark" placeholder="permit number" />
         </div>
         <div class="Header-item">
-          Fishers
+          <%= octicon("file") %>
+          <%= link_to("Upload Device File", new_device_upload_path, class: "ml-2 Header-link") %>
         </div>
       <% end %>
     </div>

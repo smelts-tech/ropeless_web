@@ -1,2 +1,26 @@
-<h1>DeviceUpload#index</h1>
-<p>Find me in app/views/device_upload/index.html.erb</p>
+<div class="container-lg mt-4">
+  <div class="col-12">
+    <h2>Device Uploads</h2>
+  </div>
+</div>
+
+<div class="container-lg mt-4 d-flex">
+  <div class="col-12">
+    <div class="Box">
+      <ul>
+        <% @device_uploads.each do |device_upload| %>
+          <li class="Box-row d-flex flex-items-center">
+            <div class="flex-auto">
+              <div class="text-small text-gray-light">
+                <p class="mb-0"><strong>Fisher</strong>: <%= link_to device_upload.fisher.name, fisher_path(device_upload.fisher) %></p>
+                <p class="mb-0"><strong>Device Count</strong>: TBD</p>
+                <p class="mb-0"><strong>Devices</strong>: TBD link to devices uploaded in this form</p>
+                <p class="mb-0"><strong>Upload time</strong>: <%= time_ago_in_words(device_upload.created_at) %> ago</p>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
