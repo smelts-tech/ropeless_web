@@ -192,6 +192,8 @@ GEM
     rgeo-activerecord (6.2.1)
       activerecord (>= 5.0)
       rgeo (>= 1.0.0)
+    rgeo-geojson (2.1.1)
+      rgeo (>= 1.0.0)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -260,12 +262,14 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  nokogiri
   octicons_helper
   pg (>= 0.18, < 2.0)
   pry-byebug
   pry-rails
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
+  rgeo-geojson
   sass-rails (>= 6)
   selenium-webdriver
   spring
