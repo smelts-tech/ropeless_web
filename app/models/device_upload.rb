@@ -39,20 +39,18 @@ class DeviceUpload < ApplicationRecord
     md5 << event_type
     md5 << dt
 
-    #geo_set = lat.blank? ? 'null' : "ST_SetSRID(ST_MakePoint(#{long}, #{lat}), 4326)"
-
     device = fisher.devices.new
     device.dt = dt
     device.modem_id = modem_id
     device.event_type = event_type
-    #device.latitude = lat
-    #device.longitude = long
+    device.latitude = lat
+    device.longitude = long
     device.altitude = altitude
     device.depth = depth
     device.md5_hash = md5.hexdigest
     begin
       device.save!
-    rescue PG::UniqueViolation => e
+    rescue ActiveRecord::RecordNotUnique => e
       puts 'Eating PG::UniqueViolation error.  MD5 of this record exists.'
     rescue StandardError => e
       # stop processing of this file
