@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_29_190648) do
+ActiveRecord::Schema.define(version: 2020_11_18_022344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,23 +44,21 @@ ActiveRecord::Schema.define(version: 2020_08_29_190648) do
     t.index ["fisher_id"], name: "index_device_uploads_on_fisher_id"
   end
 
-  create_table "devices", id: false, force: :cascade do |t|
-    t.bigserial "id", null: false
-    t.bigint "user_id"
+  create_table "devices", force: :cascade do |t|
+    t.bigint "fisher_id"
     t.datetime "dt"
     t.string "modem_id"
     t.geography "geom", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "md5_hash", default: "32", null: false
+    t.string "md5_hash", limit: 32, null: false
     t.string "event_type", limit: 30
     t.string "altitude", limit: 10
     t.string "depth", limit: 10
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["dt"], name: "index_devices_on_dt"
+    t.index ["fisher_id"], name: "index_devices_on_fisher_id"
     t.index ["geom"], name: "index_devices_on_geom", using: :gist
-    t.index ["md5_hash"], name: "devices_md5_hash_uindex", unique: true
-    t.index ["md5_hash"], name: "devices_md5_hash_uindex_2", unique: true
-    t.index ["user_id"], name: "index_devices_on_user_id"
+    t.index ["md5_hash"], name: "index_devices_on_md5_hash", unique: true
   end
 
   create_table "fishers", force: :cascade do |t|
