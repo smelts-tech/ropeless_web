@@ -56,30 +56,6 @@ class DeviceUpload < ApplicationRecord
       # stop processing of this file
       raise e
     end
-
-      # TODO - make sure the unique constraint is in place and working
-
-
-=begin
-    begin
-      @db_conn.exec("insert into devices (fisher_id, dt, modem_id, event_type, geom, altitude, depth, created_at, updated_at, md5_hash)
-                          values (#{user_id},
-                                  '#{dt}',
-                                  '#{modem_id}',
-                                  '#{event_type}',
-                                  #{geo_set},
-                                  #{altitude_set},
-                                  #{depth_set},
-                                  '#{Time.now.utc}',
-                                  '#{Time.now.utc}',
-                                  '#{md5.hexdigest}')")
-    rescue PG::UniqueViolation => e
-      puts 'Eating PG::UniqueViolation error.  MD5 of this record exists.'
-    rescue StandardError => e
-      # stop processing of this file
-      raise e
-    end
-=end
   end
 
   def fileValid?(doc)

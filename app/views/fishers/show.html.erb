@@ -16,11 +16,11 @@
     <div class="Box">
       <div class="Box-header">
         <h3 class="Box-title">
-          Device Events uploaded by <%= @fisher.name %>
+          Devices
         </h3>
       </div>
       <ul>
-        <% @fisher.devices.each do |device| %>
+        <% @fisher.devices.unique.each do |device| %>
           <li class="Box-row d-flex flex-items-center">
             <div class="flex-auto">
               <div class="text-small text-gray-light">
