@@ -6,7 +6,10 @@
         <li class="breadcrumb-item">
           <%= link_to "Dashboard", root_path %>
         </li>
-        <li class="breadcrumb-item" aria-current="page"><%= @fisher.name %></li>
+        <li class="breadcrumb-item">
+          <%= link_to @fisher.name, fisher_path(@fisher.id) %>
+        </li>
+        <li class="breadcrumb-item" aria-current="page">Modem ID <%= @device.modem_id %></li>
       </ol>
     </nav>
   </div>
@@ -16,15 +19,14 @@
     <div class="Box">
       <div class="Box-header">
         <h3 class="Box-title">
-          Devices
+          Device Events
         </h3>
       </div>
       <ul>
-        <% @fisher.devices.unique.order(:modem_id).each do |device| %>
+        <% Device.where(:modem_id => @device.modem_id).order(dt: :desc).each do |device| %>
           <li class="Box-row d-flex flex-items-center">
             <div class="flex-auto">
               <div class="text-small text-gray-light">
-                <p class="mb-0"><strong>Modem ID</strong>: <%= device.modem_id %> <%= link_to "(View Device Events)", device_path(device) %></p>
                 <p class="mb-0"><strong>Device Event time</strong>: <%= device.dt %></p>
                 <p class="mb-0"><strong>Event Type</strong>: <%= device.event_type %></p>
                 <p class="mb-0"><strong>Latitude</strong>: <%= device.geom.latitude %></p>
