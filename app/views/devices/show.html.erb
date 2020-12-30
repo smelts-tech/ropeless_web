@@ -23,7 +23,7 @@
         </h3>
       </div>
       <ul>
-        <% Device.where(:modem_id => @device.modem_id).order(dt: :desc).each do |device| %>
+        <% @ordered_event_list.each do |device| %>
           <li class="Box-row d-flex flex-items-center">
             <div class="flex-auto">
               <div class="text-small text-gray-light">
