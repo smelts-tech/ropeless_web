@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  def index
+  def show
     @fishers = Fisher.includes(:devices).all
     @devices = Device.includes(:fisher).all
   end
