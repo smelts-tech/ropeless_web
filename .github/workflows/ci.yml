@@ -1,4 +1,4 @@
-name:
+name: rspec
 on: [push]
 jobs:
   build:
@@ -15,14 +15,14 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Install dependent libraries
+      - name: install library dependencies
         run: sudo apt-get install libpq-dev
 
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.7
 
-      - name: Ruby gem cache
+      - name: setup gem cache
         uses: actions/cache@v1
         with:
           path: vendor/bundle
@@ -30,21 +30,21 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
 
-      - name: Bundle install
+      - name: run bundle install
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
 
-      - name: Setup Node
+      - name: install node
         uses: actions/setup-node@v1
         with:
           node-version: 10.13.0
 
-      - name: Find yarn cache location
+      - name: set yarn cache location
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - name: JS package cache
+      - name: cache javascript assets
         uses: actions/cache@v1
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
@@ -52,11 +52,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Install packages
+      - name: install yarn packages
         run: |
           yarn install --pure-lockfile
 
-      - name: Setup Database
+      - name: setup test database
         run: |
           cp config/database.yml.github-actions config/database.yml
           bundle exec rake db:create
@@ -66,7 +66,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
 
-      - name: Run RSpec
+      - name: run rspec
         run: COVERAGE=true bundle exec rspec  --require rails_helper
         env:
           RAILS_ENV: test
