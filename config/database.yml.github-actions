@@ -1,5 +1,5 @@
 test:
-  adapter: postgresql
+  adapter: postgis
   host: localhost
   encoding: unicode
   database: github-actions
