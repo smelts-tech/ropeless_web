@@ -23,12 +23,12 @@ jobs:
           ruby-version: 2.7
 
       - name: Ruby gem cache
-          uses: actions/cache@v1
-          with:
-            path: vendor/bundle
-            key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-            restore-keys: |
-              ${{ runner.os }}-gems-
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
 
       - name: Bundle install
         run: |
@@ -36,9 +36,9 @@ jobs:
           bundle install --jobs 4 --retry 3
 
       - name: Setup Node
-          uses: actions/setup-node@v1
-          with:
-            node-version: 10.13.0
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.13.0
 
       - name: Find yarn cache location
         id: yarn-cache
