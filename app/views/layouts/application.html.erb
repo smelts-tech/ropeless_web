@@ -29,6 +29,10 @@
           <%= octicon("file") %>
           <%= link_to("Upload Device File", new_device_upload_path, class: "ml-2 Header-link") %>
         </div>
+        <div class="Header-item">
+          <%= octicon("search") %>
+          <%= link_to("Location Search", location_search_index_path, class: "ml-2 Header-link") %>
+        </div>
       <% end %>
     </div>
     <% if flash.keys.any? %>
