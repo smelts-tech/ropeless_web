@@ -4,4 +4,5 @@ FactoryBot.define do
     sequence(:email) { |n| "test-email#{n}@example.org" }
     license_number { SecureRandom.hex(10) }
   end
+
 end
