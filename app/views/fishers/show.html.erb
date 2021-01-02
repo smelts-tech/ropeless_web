@@ -29,6 +29,7 @@
                 <p class="mb-0"><strong>Event Type</strong>: <%= device.event_type %></p>
                 <p class="mb-0"><strong>Latitude</strong>: <%= device.geom.latitude %></p>
                 <p class="mb-0"><strong>Longitude</strong>: <%= device.geom.longitude %></p>
+                <%= link_to "(Search Location)", location_search_index_path(latitude: device.geom.latitude, longitude: device.geom.longitude, radius: 1) %>
                 <% if device.depth %>
                   <p class="mb-0"><strong>Depth</strong>: <%= device.depth || "N/A" %></p>
                 <% end %>
