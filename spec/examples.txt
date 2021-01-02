@@ -1,4 +1,7 @@
-example_id                            | status | run_time        |
-------------------------------------- | ------ | --------------- |
-./spec/system/dashboards_spec.rb[1:1] | passed | 0.59105 seconds |
-./spec/system/dashboards_spec.rb[1:2] | passed | 0.09095 seconds |
+example_id                             | status  | run_time        |
+-------------------------------------- | ------- | --------------- |
+./spec/models/agency_user_spec.rb[1:1] | pending | 0.00001 seconds |
+./spec/models/fisher_spec.rb[1:1:1]    | passed  | 0.00665 seconds |
+./spec/models/user_spec.rb[1:1:1]      | passed  | 0.40814 seconds |
+./spec/system/dashboards_spec.rb[1:1]  | passed  | 0.34531 seconds |
+./spec/system/dashboards_spec.rb[1:2]  | passed  | 0.06427 seconds |

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_18_022344) do
+ActiveRecord::Schema.define(version: 2021_01_02_183244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,14 +61,6 @@ ActiveRecord::Schema.define(version: 2020_11_18_022344) do
     t.index ["md5_hash"], name: "index_devices_on_md5_hash", unique: true
   end
 
-  create_table "fishers", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "license_number"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -91,6 +83,11 @@ ActiveRecord::Schema.define(version: 2020_11_18_022344) do
     t.string "role", default: "fisher"
     t.string "permit"
     t.string "full_name"
+    t.string "type", default: "User", null: false
+    t.string "status", default: "0", null: false
+    t.string "permit_number"
+    t.string "address", limit: 1024
+    t.string "phone_number", limit: 128
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["permit"], name: "index_users_on_permit", unique: true
