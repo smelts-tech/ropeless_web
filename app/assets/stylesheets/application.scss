@@ -24,3 +24,8 @@
   src: local("Inter Bold"), local("Inter-Bold"), url(font_path("Inter-Bold.woff")) format("woff");
   font-display: swap;
 }
+
+#map {
+  width: 600px;
+  height: 400px;
+}
