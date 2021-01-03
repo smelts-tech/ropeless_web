@@ -6,8 +6,16 @@ class LocationSearchController < ApplicationController
   def index
     meters = params[:radius].to_f * 1609.34 # meters per mile
     @devices = Device.unique.where("ST_DWithin(geom, ST_MakePoint(#{params[:longitude]},#{params[:latitude]})::geography, #{meters})")
-    @unique_devices = Device.unique.collect do |device|
-        [ device.geom.latitude, device.geom.longitude, device.modem_id ]
+    @unique_devices = []
+    Device.unique.each do |device|
+      @unique_devices << {lat: device.geom.latitude,
+                          lng: device.geom.longitude,
+                          modem_id: device.modem_id,
+                          device_event_time: device.dt,
+                          event_type: device.event_type,
+                          depth: device.depth,
+                          altitude: device.altitude
+      }
     end
   end
 end
