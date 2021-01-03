@@ -1,8 +1,7 @@
 <% provide :head_tags do %>
-  <meta name='turbolinks-visit-control' content='reload'>
   <script>
       document.addEventListener("DOMContentLoaded", function(){
-          initMap(<%=params[:latitude]%>, <%=params[:longitude]%>)
+          initMap(<%=params[:latitude]%>, <%=params[:longitude]%>, <%=@unique_devices.to_json.html_safe%>)
       });
   </script>
 <% end %>
