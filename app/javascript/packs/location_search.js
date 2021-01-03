@@ -6,7 +6,6 @@ window.initMap = function (lat, lng, markers) {
         mapTypeId: 'satellite'
     };
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    debugger;
     // markers
     for (var i = 0; i < markers.length; i++) {
         var marker = new google.maps.Marker({
