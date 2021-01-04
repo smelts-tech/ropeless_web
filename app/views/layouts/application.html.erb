@@ -6,7 +6,9 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=' + (ENV['GOOGLE_MAPS_API_KEY'] || '') %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield(:head_tags) %>
   </head>
 
   <body>

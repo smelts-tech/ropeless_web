@@ -1,3 +1,10 @@
+<% provide :head_tags do %>
+  <script>
+      document.addEventListener("DOMContentLoaded", function(){
+          initMap(<%=params[:latitude]%>, <%=params[:longitude]%>, <%=@unique_devices.to_json.html_safe%>)
+      });
+  </script>
+<% end %>
 <div class="container-lg mt-4">
   <div class="col-12">
     <h2>Location Search</h2>
@@ -55,6 +62,6 @@
 </div>
 <div class="container-lg mt-4">
   <div class="col-12">
-
+    <div id="map"></div>
   </div>
 </div>
