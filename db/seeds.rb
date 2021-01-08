@@ -18,7 +18,13 @@ if Device.count > 0
   puts "randomizing ownership of device records..."
 
   Device.all.in_groups_of(5) do |devices|
-    rando_fisher = Fisher.create(name: Faker::Name.name, license_number: SecureRandom.hex(10), email: Faker::Internet.email)
+    rando_fisher = Fisher.create \
+      full_name: Faker::Name.name,
+      permit_number: SecureRandom.hex(10),
+      email: Faker::Internet.email,
+      password: "password",
+      password_confirmation: "password"
+
     devices.each do |d|
       next if d.blank?
       d.update_attributes(fisher: rando_fisher)
