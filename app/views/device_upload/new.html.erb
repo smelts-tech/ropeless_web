@@ -5,7 +5,7 @@
     <%= form_for(@device_upload) do |f| %>
       <div class="form-group<%= @device_upload.errors[:fisher].any? ? " errored" : "" %>">
         <%= f.label :fisher_id %><br />
-        <%= f.select :fisher_id, Fisher.all.collect { |p| [ p.name, p.id ] }, {}, { class: "form-select" } %>
+        <%= f.select :fisher_id, Fisher.all.collect { |p| [ p.full_name, p.id ] }, {}, { class: "form-select" } %>
       </div>
 
       <div class="form-group<%= @device_upload.errors[:uploaded_file].any? ? " errored" : "" %>">

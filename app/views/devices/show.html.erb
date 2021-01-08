@@ -7,7 +7,7 @@
           <%= link_to "Dashboard", root_path %>
         </li>
         <li class="breadcrumb-item">
-          <%= link_to @fisher.name, fisher_path(@fisher.id) %>
+          <%= link_to @fisher.full_name, fisher_path(@fisher.id) %>
         </li>
         <li class="breadcrumb-item" aria-current="page">Modem ID <%= @device.modem_id %></li>
       </ol>

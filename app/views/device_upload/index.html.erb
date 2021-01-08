@@ -12,7 +12,7 @@
           <li class="Box-row d-flex flex-items-center">
             <div class="flex-auto">
               <div class="text-small text-gray-light">
-                <p class="mb-0"><strong>Fisher</strong>: <%= link_to device_upload.fisher.name, fisher_path(device_upload.fisher) %></p>
+                <p class="mb-0"><strong>Fisher</strong>: <%= link_to device_upload.fisher.full_name, fisher_path(device_upload.fisher) %></p>
                 <p class="mb-0"><strong>Device Count</strong>: TBD</p>
                 <p class="mb-0"><strong>Devices</strong>: TBD link to devices uploaded in this form</p>
                 <p class="mb-0"><strong>Upload time</strong>: <%= time_ago_in_words(device_upload.created_at) %> ago</p>

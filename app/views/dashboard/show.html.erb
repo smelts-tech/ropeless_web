@@ -17,7 +17,7 @@
         <% @fishers.each do |fisher| %>
           <li class="Box-row d-flex flex-items-center">
             <div class="flex-auto">
-              <strong><%= fisher.name %></strong>
+              <strong><%= fisher.full_name %></strong>
               <div class="text-small text-gray-light">
                 <%= pluralize(fisher.devices.unique.count, "device") %>
               </div>
