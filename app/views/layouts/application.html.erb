@@ -6,7 +6,9 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=' + (ENV['GOOGLE_MAPS_API_KEY'] || '') %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield(:head_tags) %>
   </head>
 
   <body>
@@ -28,6 +30,10 @@
         <div class="Header-item">
           <%= octicon("file") %>
           <%= link_to("Upload Device File", new_device_upload_path, class: "ml-2 Header-link") %>
+        </div>
+        <div class="Header-item">
+          <%= octicon("search") %>
+          <%= link_to("Location Search", location_search_index_path, class: "ml-2 Header-link") %>
         </div>
       <% end %>
     </div>

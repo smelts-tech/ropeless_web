@@ -1,0 +1,67 @@
+<% provide :head_tags do %>
+  <script>
+      document.addEventListener("DOMContentLoaded", function(){
+          initMap(<%=params[:latitude]%>, <%=params[:longitude]%>, <%=@unique_devices.to_json.html_safe%>)
+      });
+  </script>
+<% end %>
+<div class="container-lg mt-4">
+  <div class="col-12">
+    <h2>Location Search</h2>
+  </div>
+</div>
+<div class="container-lg mt-4">
+  <div class="col-12">
+    <%= form_tag location_search_index_path, method: :get do %>
+      <%= label_tag "Latitude" %><br />
+      <%= number_field_tag :latitude, params[:latitude], step: :any %><br />
+      <%= label_tag "Longitude" %><br />
+      <%= number_field_tag :longitude, params[:longitude], step: :any %><br />
+      <%= label_tag "Radius (miles)" %><br />
+      <%= number_field_tag :radius, params[:radius], step: :any %><br /><br />
+     <%= submit_tag 'Search', name: nil %>
+    <% end %>
+  </div>
+</div>
+<div class="container-lg mt-4">
+  <div class="col-12">
+    <div class="Box">
+      <div class="Box-header">
+        <h3 class="Box-title">
+          Devices
+        </h3>
+      </div>
+      <ul>
+        <% if @devices.empty? %> No devices found
+        <% else %>
+          <% @devices.each do |device| %>
+            <li class="Box-row d-flex flex-items-center">
+              <div class="flex-auto">
+                <div class="text-small text-gray-light">
+                  <p class="mb-0"><strong>Modem ID</strong>: <%= device.modem_id %> <%= link_to "(View Device Events)", device_path(device) %></p>
+                  <p class="mb-0"><strong>Device Event time</strong>: <%= device.dt %></p>
+                  <p class="mb-0"><strong>Event Type</strong>: <%= device.event_type %></p>
+                  <p class="mb-0"><strong>Latitude</strong>: <%= device.geom.latitude %></p>
+                  <p class="mb-0"><strong>Longitude</strong>: <%= device.geom.longitude %></p>
+                  <%= link_to "(Search Location)", location_search_index_path(latitude: device.geom.latitude, longitude: device.geom.longitude, radius: 1) %>
+                  <% if device.depth %>
+                    <p class="mb-0"><strong>Depth</strong>: <%= device.depth || "N/A" %></p>
+                  <% end %>
+                  <% if device.altitude %>
+                    <p class="mb-0"><strong>Altitude</strong>: <%= device.altitude || "N/A" %></p>
+                  <% end %>
+                  <p class="mb-0"><strong>Upload time</strong>: <%= time_ago_in_words(device.created_at) %> ago</p>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container-lg mt-4">
+  <div class="col-12">
+    <div id="map"></div>
+  </div>
+</div>
