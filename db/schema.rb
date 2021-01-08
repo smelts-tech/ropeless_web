@@ -80,8 +80,6 @@ ActiveRecord::Schema.define(version: 2021_01_02_183244) do
     t.datetime "locked_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "role", default: "fisher"
-    t.string "permit"
     t.string "full_name"
     t.string "type", default: "User", null: false
     t.string "status", default: "0", null: false
@@ -90,9 +88,7 @@ ActiveRecord::Schema.define(version: 2021_01_02_183244) do
     t.string "phone_number", limit: 128
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["permit"], name: "index_users_on_permit", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["role"], name: "index_users_on_role"
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
