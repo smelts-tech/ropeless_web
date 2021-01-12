@@ -13,5 +13,8 @@ Rails.application.routes.draw do
 
   resource :dashboard, only: :show, controller: "dashboard"
 
+  # for when users inevitably refresh the registration page
+  get '/users', to: redirect("/users/sign_up")
+
   root to: "dashboard#show"
 end
