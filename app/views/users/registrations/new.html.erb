@@ -1,13 +1,57 @@
 <div class="container-lg mt-4">
   <div class="col-6 offset-3">
-    <h2>Sign up</h2>
+    <h2>Request access</h2>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {"data-controller": "registrations"}) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="form-group<%= resource.errors[:full_name].any? ? " errored" : "" %>">
+        <%= f.label :full_name %><br />
+        <%= f.text_field :full_name, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group<%= resource.errors[:access_needed].any? ? " errored" : "" %>">
+        <div class="form-group-header">
+          <label for="user_access_needed">What type of access do you need?</label>
+        </div>
+        <div class="form-group-body">
+          <select id="user_access_needed" name="user[access_needed]" class="form-select" data-registrations-target="accessNeeded" data-action="change->registrations#userTypeChanged" aria-label="Choose what access you need" aria-describedby="username-input-validation">
+            <option value="">Please select an option...</option>
+            <option value="AgencyUser" <%= "selected='selected'" if resource.access_needed == 'AgencyUser' %>>Agency User</option>
+            <option value="Fisher" <%= "selected='selected'" if resource.access_needed == 'Fisher' %>>Fisher</option>
+          </select>
+          <% if resource.errors[:access_needed].any? %>
+            <p class="note error" id="username-input-validation" data-show-if-blank>
+              Please choose if you need access as a Fisher or as an Agency User.
+            </p>
+          <% end %>
+          <p class="note" data-show-if="AgencyUser" hidden>
+            This is for users from federal agencies interested in using the Smelts trap location data for research purposes.
+          </p>
+          <p class="note" data-show-if="Fisher" hidden>
+            As a Fisher you will be able to upload data about your traps and their locations.
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group<%= resource.errors[:permit_number].any? ? " errored" : "" %>" data-show-if="Fisher">
+        <%= f.label :permit_number %><br />
+        <%= f.text_field :permit_number, class: "form-control" %>
+      </div>
+
+      <div class="form-group<%= resource.errors[:address].any? ? " errored" : "" %>" data-show-if="Fisher">
+        <%= f.label :address %><br />
+        <%= f.text_field :address, class: "form-control" %>
+      </div>
+
+      <div class="form-group<%= resource.errors[:phone_number].any? ? " errored" : "" %>" data-show-if="Fisher">
+        <%= f.label :phone_number %><br />
+        <%= f.phone_field :phone_number, class: "form-control" %>
+      </div>
 
       <div class="form-group<%= resource.errors[:email].any? ? " errored" : "" %>">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
       </div>
 
       <div class="form-group<%= resource.errors[:password].any? ? " errored" : "" %>">

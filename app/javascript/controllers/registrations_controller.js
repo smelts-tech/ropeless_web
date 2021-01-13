@@ -17,5 +17,12 @@ export default class extends Controller {
         element.setAttribute('hidden', 'hidden')
       }
     })
+    document.querySelectorAll('[data-show-if-blank]').forEach((element) => {
+      if(value === "") {
+        element.removeAttribute('hidden')
+      } else {
+        element.setAttribute('hidden', 'hidden')
+      }
+    })
   }
 }

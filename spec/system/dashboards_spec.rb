@@ -12,7 +12,7 @@ RSpec.describe "Dashboards", type: :system do
   end
 
   it "shows the dashboard when logged in" do
-    login_as FactoryBot.create(:user)
+    login_as FactoryBot.create(:user, :active)
 
     visit "/dashboard"
 

@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-User.create(email: "rob.sterner@gmail.com", password: "password123", status: :active) # rob
-User.create(email: "rgrimard@gmail.com", password: "password123", status: :active) # ryan
-User.create(email: "admin-user@smelts.org", password: "password123", status: :active) # smelts admin
+User.create!(email: "rob.sterner@gmail.com", full_name: "Rob Sterner", password: "password123", status: :active, access_needed: "User") # rob
+User.create!(email: "rgrimard@gmail.com", full_name: "Ryan Grimard", password: "password123", status: :active, access_needed: "User") # ryan
+User.create!(email: "admin-user@smelts.org", full_name: "Smelts Admin", password: "password123", status: :active, access_needed: "User") # smelts admin
 
 
 if Device.count > 0
@@ -18,7 +18,7 @@ if Device.count > 0
   puts "randomizing ownership of device records..."
 
   Device.all.in_groups_of(5) do |devices|
-    rando_fisher = Fisher.create \
+    rando_fisher = Fisher.create! \
       full_name: Faker::Name.name,
       permit_number: SecureRandom.hex(10),
       email: Faker::Internet.email,
