@@ -3,7 +3,7 @@
     <h2>Request access</h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {"data-controller": "registrations"}) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= render "users/shared/error_messages", resource: resource %>
 
       <div class="form-group<%= resource.errors[:full_name].any? ? " errored" : "" %>">
         <%= f.label :full_name %><br />
