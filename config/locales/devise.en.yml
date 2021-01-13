@@ -62,4 +62,4 @@ en:
       not_locked: "was not locked"
       not_saved:
         one: "There is an error with the information you provided:"
-        other: "There are %{count} errors the information you provided"
+        other: "There are %{count} errors with the information you provided:"

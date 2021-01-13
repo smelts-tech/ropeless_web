@@ -60,7 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     thanks_url
   end
 
-  # override `resource_class` to look at sign_up_params[:access_needed] and return the right class
+  # override `resource_class` to look at params[:user][:access_needed] and return the right class
   def resource_class
     devise_mapping.to unless action_name == "create"
 
