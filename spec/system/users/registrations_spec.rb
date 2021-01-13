@@ -37,7 +37,7 @@ RSpec.describe "Users > Registrations", type: :system do
 
     # choose fisher
     find_field("user[access_needed]").find(:option, "Fisher").select_option
-    expect(page).to have_text("As a Fisher you will be able to upload")
+    expect(page).to have_text("As a Fisher, you will be able to upload data")
     expect(page).to have_field("user[permit_number]")
     expect(page).to have_field("user[address]")
     expect(page).to have_field("user[phone_number]")
@@ -52,7 +52,7 @@ RSpec.describe "Users > Registrations", type: :system do
     visit "/users/sign_up"
     find_button("Sign up").click
 
-    expect(page).to have_text("There are 4 errors the information you provided")
+    expect(page).to have_text("There are 4 errors with the information you provided:")
     expect(page).to have_text("Email can't be blank")
     expect(page).to have_text("Password can't be blank")
     expect(page).to have_text("Full name can't be blank")
@@ -66,7 +66,7 @@ RSpec.describe "Users > Registrations", type: :system do
     find_field("user[access_needed]").find(:option, "Fisher").select_option
     find_button("Sign up").click
 
-    expect(page).to have_text("There are 4 errors the information you provided")
+    expect(page).to have_text("There are 4 errors with the information you provided:")
     expect(page).to have_text("Email can't be blank")
     expect(page).to have_text("Password can't be blank")
     expect(page).to have_text("Full name can't be blank")
@@ -81,7 +81,7 @@ RSpec.describe "Users > Registrations", type: :system do
     find_field("user[access_needed]").find(:option, "Agency User").select_option
     find_button("Sign up").click
 
-    expect(page).to have_text("There are 3 errors the information you provided")
+    expect(page).to have_text("There are 3 errors with the information you provided:")
     expect(page).to have_text("Email can't be blank")
     expect(page).to have_text("Password can't be blank")
     expect(page).to have_text("Full name can't be blank")
