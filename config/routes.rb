@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   # for when users inevitably refresh the registration page
   get '/users', to: redirect("/users/sign_up")
+  get '/thanks', to: "thanks#show"
 
   root to: "dashboard#show"
 end
