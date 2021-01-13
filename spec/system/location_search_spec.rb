@@ -12,7 +12,7 @@ RSpec.describe "Location Search", type: :system do
   end
 
   it "shows the location search page when logged in" do
-    login_as FactoryBot.create(:user)
+    login_as FactoryBot.create(:user, :active)
 
     visit "/location_search?latitude=41.865099&longitude=-70.559702&radius=100"
 
@@ -20,8 +20,8 @@ RSpec.describe "Location Search", type: :system do
   end
 
   it "shows the location search page when logged in" do
-    login_as FactoryBot.create(:user)
-    fisher = FactoryBot.create(:fisher)
+    login_as FactoryBot.create(:user, :active)
+    fisher = FactoryBot.create(:fisher, :active)
     FactoryBot.create(:device, fisher: fisher, modem_id: 1, dt: '2020-10-05 15:42:27.000000', event_type: 'Set Data', geom: "0101000020E61000005F605628D2A351C0B2666490BBEE4440")
 
     visit "/location_search?latitude=41.865099&longitude=-70.559702&radius=100"
