@@ -44,6 +44,21 @@
         <%= f.text_field :address, class: "form-control" %>
       </div>
 
+      <div class="form-group<%= resource.errors[:city].any? ? " errored" : "" %>" data-show-if="Fisher">
+        <%= f.label :city %><br />
+        <%= f.text_field :city, class: "form-control" %>
+      </div>
+
+      <div class="form-group<%= resource.errors[:state].any? ? " errored" : "" %>" data-show-if="Fisher">
+        <%= f.label :state, "State / Province" %><br />
+        <%= f.text_field :state, class: "form-control" %>
+      </div>
+
+      <div class="form-group<%= resource.errors[:zip_code].any? ? " errored" : "" %>" data-show-if="Fisher">
+        <%= f.label :zip_code, "ZIP code" %><br />
+        <%= f.text_field :zip_code, class: "form-control" %>
+      </div>
+
       <div class="form-group<%= resource.errors[:phone_number].any? ? " errored" : "" %>" data-show-if="Fisher">
         <%= f.label :phone_number %><br />
         <%= f.phone_field :phone_number, class: "form-control" %>
