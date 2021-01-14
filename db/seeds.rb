@@ -7,10 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-User.create!(email: "rob.sterner@gmail.com", full_name: "Rob Sterner", password: "password123", status: :active, access_needed: "User") # rob
-User.create!(email: "rgrimard@gmail.com", full_name: "Ryan Grimard", password: "password123", status: :active, access_needed: "User") # ryan
-User.create!(email: "admin-user@smelts.org", full_name: "Smelts Admin", password: "password123", status: :active, access_needed: "User") # smelts admin
-
+User.create!(email: "smelts-admin@smelts.org", full_name: "Smelts Admin", password: "acraftypassword", status: :active, access_needed: "User") # rob
 
 if Device.count > 0
   Fisher.destroy_all

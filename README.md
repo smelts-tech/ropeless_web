@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby 2.7.2
+* PostgreSQL 11.x w/ PostGIS
 
-Things you may want to cover:
+### setup
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* `git clone git@github.com:smelts-tech/ropeless_web.git`
+* `bundle install`
+* `rake db:create db:schema:load db:test:prepare`
+* TODO: a task to import devices and device events from a file (Ryan help?)
