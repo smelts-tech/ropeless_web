@@ -34,15 +34,18 @@
         <% end %>
         <div class="Header-item">
           <%= octicon("list-unordered") %>
-          <%= link_to("Device File Uploads", device_uploads_path, class: "ml-2 Header-link") %>
+          <%= link_to("Device dashboards_spec.rbFile Uploads", device_uploads_path, class: "ml-2 Header-link") %>
         </div>
         <div class="Header-item">
           <%= octicon("file") %>
           <%= link_to("Upload Device File", new_device_upload_path, class: "ml-2 Header-link") %>
         </div>
-        <div class="Header-item">
+        <div class="Header-item Header-item--full">
           <%= octicon("search") %>
           <%= link_to("Location Search", location_search_index_path, class: "ml-2 Header-link") %>
+        </div>
+        <div class="Header-item mr-0">
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
         </div>
       <% end %>
     </div>
