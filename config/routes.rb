@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :devices
   resources :device_uploads, controller: "device_upload"
   resources :location_search, controller: "location_search"
+  resources :access_requests, only: %w(index show update)
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',

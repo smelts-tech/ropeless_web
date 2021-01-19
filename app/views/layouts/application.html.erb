@@ -23,6 +23,15 @@
         <div class="Header-item">
           <input type="search" class="form-control input-dark" placeholder="permit number" />
         </div>
+        <% if current_user_admin? %>
+          <div class="Header-item">
+            <%= octicon("person") %>
+            <%= link_to("Access Requests", access_requests_url, class: "ml-2 Header-link") %>
+            <% if User.outstanding_access_requests.any? %>
+              <span class="Counter ml-2"><%= User.outstanding_access_requests.count %></span>
+            <% end %>
+          </div>
+        <% end %>
         <div class="Header-item">
           <%= octicon("list-unordered") %>
           <%= link_to("Device File Uploads", device_uploads_path, class: "ml-2 Header-link") %>

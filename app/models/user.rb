@@ -11,6 +11,10 @@ class User < ApplicationRecord
     deactivated: 3
   }
 
+  scope :outstanding_access_requests, -> {
+    unscoped.where(status: :needs_confirmation)
+  }
+
   validates :full_name, presence: true
   validates :access_needed, presence: true, if: Proc.new { |record| record.new_record? }
 
