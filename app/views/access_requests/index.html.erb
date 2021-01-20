@@ -1,0 +1,79 @@
+<div class="container-lg mt-4">
+  <div class="col-12">
+    <h2>Access Requests</h2>
+  </div>
+</div>
+
+<div class="container-lg mt-4 d-flex">
+  <div class="col-12">
+    <div class="Box">
+      <div class="Box-header">
+        <h3 class="Box-title">
+          The following users are requesting access
+        </h3>
+      </div>
+      <div class="Box-body">
+        <table class="width-full">
+          <thead>
+            <tr class="border-bottom">
+              <th>Full Name</th>
+              <th>Access Needed</th>
+              <th>E-mail address</th>
+              <th>Permit Number</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @access_requests.each do |user| %>
+              <tr class="border-bottom">
+                <td class="p-2 css-truncate css-truncate-overflow" style="width: 200px;" title="<%= user.full_name %>">
+                  <strong><%= user.full_name %></strong>
+                </td>
+                <td class="p-2">
+                  <%= user.class.name.titleize %>
+                </td>
+                <td class="p-2">
+                  <%= user.email %>
+                </td>
+                <td class="p-2">
+                  <% if user.is_a?(Fisher) %>
+                    <%= user.permit_number %>
+                  <% else %>
+                    N/A
+                  <% end %>
+                </td>
+                <td class="p-2">
+                  <div class="mr-2">
+                    <%= form_for user, url: access_request_path(user), html: {class: "d-inline-block"} do |f| %>
+                      <%= hidden_field_tag("user[status]", :active) %>
+                      <%= f.button class: "btn btn-sm btn-primary" do %>
+                        <%= octicon "zap" %>
+                        Approve
+                      <% end %>
+                    <% end %>
+                    <%= form_for user, url: access_request_path(user), html: {class: "d-inline-block"} do |f| %>
+                      <%= hidden_field_tag("user[status]", :rejected) %>
+                      <%= f.button class: "btn btn-sm btn-danger" do %>
+                        <%= octicon "trashcan" %>
+                        Reject
+                      <% end %>
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+          <% if @access_requests.total_pages > 1 %>
+            <tfoot>
+              <tr>
+                <td colspan="5">
+                  <%= will_paginate @access_requests, previous_label: "Previous", next_label: "Next" %>
+                </td>
+              </tr>
+            </tfoot>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
