@@ -27,4 +27,48 @@ RSpec.describe "Access Requests", type: :system do
 
     expect(page).to have_text("Access Requests 2")
   end
+
+  it "shows information about users who are requesting access" do
+    fisher = FactoryBot.create(:fisher, :needs_confirmation)
+    agency_user = FactoryBot.create(:agency_user, :needs_confirmation)
+    login_as FactoryBot.create(:user, :active)
+
+    visit "/access_requests"
+
+    expect(page).to have_text(fisher.full_name)
+    expect(page).to have_text(fisher.email)
+    expect(page).to have_text(fisher.permit_number)
+    expect(page).to have_text(agency_user.full_name)
+    expect(page).to have_text(agency_user.email)
+  end
+
+  it "lets admin users approve users for access" do
+    fisher = FactoryBot.create(:fisher, :needs_confirmation)
+    login_as FactoryBot.create(:user, :active)
+
+    expect(fisher.active_for_authentication?).to be_falsey
+    expect(fisher.needs_confirmation?).to be_truthy
+
+    visit "/access_requests"
+
+    find_button("Approve").click
+
+    fisher.reload
+    expect(fisher.active_for_authentication?).to be_truthy
+    expect(fisher.active?).to be_truthy
+  end
+
+  it "lets admin users reject users for access" do
+    fisher = FactoryBot.create(:fisher, :needs_confirmation)
+    login_as FactoryBot.create(:user, :active)
+    expect(fisher.active_for_authentication?).to be_falsey
+
+    visit "/access_requests"
+
+    find_button("Reject").click
+
+    fisher.reload
+    expect(fisher.active_for_authentication?).to be_falsey
+    expect(fisher.rejected?).to be_truthy
+  end
 end
