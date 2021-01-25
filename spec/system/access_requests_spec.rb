@@ -71,4 +71,22 @@ RSpec.describe "Access Requests", type: :system do
     expect(fisher.active_for_authentication?).to be_falsey
     expect(fisher.rejected?).to be_truthy
   end
+
+  it "sends an email when an access request is approved" do
+    FactoryBot.create(:fisher, :needs_confirmation)
+    login_as FactoryBot.create(:user, :active)
+
+    visit "/access_requests"
+
+    expect { find_button("Approve").click }.to change { ActionMailer::Base.deliveries.count }.by(1)
+  end
+
+  it "sends an email when an access request is rejected" do
+    FactoryBot.create(:fisher, :needs_confirmation)
+    login_as FactoryBot.create(:user, :active)
+
+    visit "/access_requests"
+
+    expect { find_button("Reject").click }.to change { ActionMailer::Base.deliveries.count }.by(1)
+  end
 end
