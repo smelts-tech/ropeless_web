@@ -15,6 +15,8 @@ class User < ApplicationRecord
     unscoped.where(status: :needs_confirmation)
   }
 
+  store_accessor :additional_information, :permit_number, :agency_name, :address, :phone_number, :city, :state, :zip_code
+
   validates :full_name, presence: true
   validates :access_needed, presence: true, if: Proc.new { |record| record.new_record? }
 
