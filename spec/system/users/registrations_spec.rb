@@ -14,14 +14,18 @@ RSpec.describe "Users > Registrations", type: :system do
     expect(page).to have_field("user[email]")
     expect(page).to have_field("user[password]")
     expect(page).to have_field("user[password_confirmation]")
+    expect(page).to have_field("user[address]")
+    expect(page).to have_field("user[city]")
+    expect(page).to have_field("user[state]")
+    expect(page).to have_field("user[zip_code]")
+    expect(page).to have_field("user[phone_number]")
     expect(page).to have_button("Sign up")
 
     # choose agency user
     find_field("user[access_needed]").find(:option, "Agency User").select_option
     expect(page).to have_text("This is for users from federal agencies")
+    expect(page).to have_field("user[agency_name]")
     expect(page).to_not have_field("user[permit_number]")
-    expect(page).to_not have_field("user[address]")
-    expect(page).to_not have_field("user[phone_number]")
   end
 
   it "shows the expected form fields for fishers" do
@@ -33,14 +37,18 @@ RSpec.describe "Users > Registrations", type: :system do
     expect(page).to have_field("user[email]")
     expect(page).to have_field("user[password]")
     expect(page).to have_field("user[password_confirmation]")
+    expect(page).to have_field("user[address]")
+    expect(page).to have_field("user[city]")
+    expect(page).to have_field("user[state]")
+    expect(page).to have_field("user[zip_code]")
+    expect(page).to have_field("user[phone_number]")
     expect(page).to have_button("Sign up")
 
     # choose fisher
     find_field("user[access_needed]").find(:option, "Fisher").select_option
     expect(page).to have_text("As a Fisher, you will be able to upload data")
     expect(page).to have_field("user[permit_number]")
-    expect(page).to have_field("user[address]")
-    expect(page).to have_field("user[phone_number]")
+    expect(page).to_not have_field("user[agency_name]")
   end
 
   it "has links to go elsewhere to log in, reset password, etc." do

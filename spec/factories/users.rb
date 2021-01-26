@@ -14,5 +14,6 @@ FactoryBot.define do
 
   factory :agency_user, parent: :user, class: 'AgencyUser' do
     access_needed { "AgencyUser" }
+    agency_name { Faker::Company.name }
   end
 end
