@@ -13,9 +13,15 @@ class AccessRequestsController < ApplicationController
     user = User.find(params[:id])
 
     if user.update_attributes(update_params)
-      flash[:success] = "Changes saved"
+      if user.active?
+        flash[:success] = "Access request approved."
+        AccessRequestsMailer.approved_email(user).deliver_now
+      else
+        flash[:success] = "Access request rejected."
+        AccessRequestsMailer.rejected_email(user).deliver_now
+      end
     else
-      flash[:error] = "Failed to save changes"
+      flash[:error] = "Unknown option passed, please approve or reject the access request."
     end
 
     redirect_to access_requests_url
