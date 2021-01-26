@@ -74,13 +74,18 @@ RSpec.describe "Users > Registrations", type: :system do
     find_field("user[access_needed]").find(:option, "Fisher").select_option
     find_button("Sign up").click
 
-    expect(page).to have_text("There are 4 errors with the information you provided:")
+    expect(page).to have_text("There are 9 errors with the information you provided:")
     expect(page).to have_text("Email can't be blank")
     expect(page).to have_text("Password can't be blank")
     expect(page).to have_text("Full name can't be blank")
     expect(page).to have_text("Permit number can't be blank")
+    expect(page).to have_text("Address can't be blank")
+    expect(page).to have_text("City can't be blank")
+    expect(page).to have_text("State can't be blank")
+    expect(page).to have_text("Zip code can't be blank")
+    expect(page).to have_text("Phone number can't be blank")
 
-    expect(page.all(:css, '.form-group.errored').count).to equal(4)
+    expect(page.all(:css, '.form-group.errored').count).to equal(9)
   end
 
   it "shows Agency User validation messages inline and at the top of the form" do
@@ -89,12 +94,18 @@ RSpec.describe "Users > Registrations", type: :system do
     find_field("user[access_needed]").find(:option, "Agency User").select_option
     find_button("Sign up").click
 
-    expect(page).to have_text("There are 3 errors with the information you provided:")
+    expect(page).to have_text("There are 9 errors with the information you provided:")
     expect(page).to have_text("Email can't be blank")
     expect(page).to have_text("Password can't be blank")
     expect(page).to have_text("Full name can't be blank")
+    expect(page).to have_text("Agency name can't be blank")
+    expect(page).to have_text("Address can't be blank")
+    expect(page).to have_text("City can't be blank")
+    expect(page).to have_text("State can't be blank")
+    expect(page).to have_text("Zip code can't be blank")
+    expect(page).to have_text("Phone number can't be blank")
 
-    expect(page.all(:css, '.form-group.errored').count).to equal(3)
+    expect(page.all(:css, '.form-group.errored').count).to equal(9)
   end
 
   it "creates a new Fisher whose status is `needs_confirmation`" do
@@ -103,6 +114,11 @@ RSpec.describe "Users > Registrations", type: :system do
 
     page.fill_in("user[full_name]", with: Faker::Name.name)
     page.fill_in("user[permit_number]", with: SecureRandom.hex(10))
+    page.fill_in("user[address]", with: Faker::Address.street_address)
+    page.fill_in("user[city]", with: Faker::Address.city)
+    page.fill_in("user[state]", with: Faker::Address.state_abbr)
+    page.fill_in("user[zip_code]", with: Faker::Address.zip_code)
+    page.fill_in("user[phone_number]", with: Faker::PhoneNumber.phone_number)
     page.fill_in("user[email]", with: Faker::Internet.email)
     page.fill_in("user[password]", with: "password")
     page.fill_in("user[password_confirmation]", with: "password")
@@ -117,6 +133,12 @@ RSpec.describe "Users > Registrations", type: :system do
     find_field("user[access_needed]").find(:option, "Agency User").select_option
 
     page.fill_in("user[full_name]", with: Faker::Name.name)
+    page.fill_in("user[agency_name]", with: Faker::Company.name)
+    page.fill_in("user[address]", with: Faker::Address.street_address)
+    page.fill_in("user[city]", with: Faker::Address.city)
+    page.fill_in("user[state]", with: Faker::Address.state_abbr)
+    page.fill_in("user[zip_code]", with: Faker::Address.zip_code)
+    page.fill_in("user[phone_number]", with: Faker::PhoneNumber.phone_number)
     page.fill_in("user[email]", with: Faker::Internet.email)
     page.fill_in("user[password]", with: "password")
     page.fill_in("user[password_confirmation]", with: "password")
