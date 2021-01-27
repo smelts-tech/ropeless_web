@@ -12,7 +12,7 @@ class AccessRequestsController < ApplicationController
   def update
     user = User.find(params[:id])
 
-    if user.update_attributes(update_params)
+    if user.update(update_params)
       if user.active?
         flash[:success] = "Access request approved."
         AccessRequestsMailer.approved_email(user).deliver_now
