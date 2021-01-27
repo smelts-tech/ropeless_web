@@ -32,4 +32,9 @@ if Device.count > 0
       d.update_attributes(fisher: rando_fisher)
     end
   end
+
+  fishers = Fisher.all.to_a
+  DeviceUpload.all.each do |du|
+    du.update(fisher: fishers.sample)
+  end
 end
