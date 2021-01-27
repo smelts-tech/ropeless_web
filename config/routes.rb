@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :access_requests, only: %w(index show update)
+    resources :users, only: %w(index update)
   end
 
   devise_for :users, controllers: {
