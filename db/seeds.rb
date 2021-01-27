@@ -18,6 +18,11 @@ if Device.count > 0
     rando_fisher = Fisher.create! \
       full_name: Faker::Name.name,
       permit_number: SecureRandom.hex(10),
+      address: Faker::Address.street_address,
+      city: Faker::Address.city,
+      state: Faker::Address.state_abbr,
+      zip_code: Faker::Address.zip_code,
+      phone_number: Faker::PhoneNumber.phone_number,
       email: Faker::Internet.email,
       password: "password",
       password_confirmation: "password"
@@ -26,5 +31,10 @@ if Device.count > 0
       next if d.blank?
       d.update_attributes(fisher: rando_fisher)
     end
+  end
+
+  fishers = Fisher.all.to_a
+  DeviceUpload.all.each do |du|
+    du.update(fisher: fishers.sample)
   end
 end
