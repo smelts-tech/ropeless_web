@@ -1,4 +1,4 @@
-class AccessRequestsController < ApplicationController
+class Admin::AccessRequestsController < AdminController
 
   before_action :require_admin_user
 
@@ -24,7 +24,7 @@ class AccessRequestsController < ApplicationController
       flash[:error] = "Unknown option passed, please approve or reject the access request."
     end
 
-    redirect_to access_requests_url
+    redirect_to admin_access_requests_url
   end
 
   private

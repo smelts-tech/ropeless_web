@@ -6,7 +6,7 @@ RSpec.describe "Access Requests", type: :system do
   end
 
   it "requires a login" do
-    visit "/access_requests"
+    visit "/admin/access_requests"
 
     expect(page).to have_current_path("/users/sign_in")
   end
@@ -14,7 +14,7 @@ RSpec.describe "Access Requests", type: :system do
   it "required an admin user" do
     login_as FactoryBot.create(:fisher, :active)
 
-    visit "/access_requests"
+    visit "/admin/access_requests"
 
     expect(page).to have_current_path("/")
   end
@@ -23,7 +23,7 @@ RSpec.describe "Access Requests", type: :system do
     login_as FactoryBot.create(:user, :active)
     2.times { FactoryBot.create(:fisher, :needs_confirmation) }
 
-    visit "/access_requests"
+    visit "/admin/access_requests"
 
     expect(page).to have_text("Access Requests 2")
   end
@@ -33,7 +33,7 @@ RSpec.describe "Access Requests", type: :system do
     agency_user = FactoryBot.create(:agency_user, :needs_confirmation)
     login_as FactoryBot.create(:user, :active)
 
-    visit "/access_requests"
+    visit "/admin/access_requests"
 
     expect(page).to have_text(fisher.full_name)
     expect(page).to have_text(fisher.email)
@@ -49,7 +49,7 @@ RSpec.describe "Access Requests", type: :system do
     expect(fisher.active_for_authentication?).to be_falsey
     expect(fisher.needs_confirmation?).to be_truthy
 
-    visit "/access_requests"
+    visit "/admin/access_requests"
 
     find_button("Approve").click
 
@@ -63,7 +63,7 @@ RSpec.describe "Access Requests", type: :system do
     login_as FactoryBot.create(:user, :active)
     expect(fisher.active_for_authentication?).to be_falsey
 
-    visit "/access_requests"
+    visit "/admin/access_requests"
 
     find_button("Reject").click
 
@@ -76,7 +76,7 @@ RSpec.describe "Access Requests", type: :system do
     FactoryBot.create(:fisher, :needs_confirmation)
     login_as FactoryBot.create(:user, :active)
 
-    visit "/access_requests"
+    visit "/admin/access_requests"
 
     expect { find_button("Approve").click }.to change { ActionMailer::Base.deliveries.count }.by(1)
   end
@@ -85,7 +85,7 @@ RSpec.describe "Access Requests", type: :system do
     FactoryBot.create(:fisher, :needs_confirmation)
     login_as FactoryBot.create(:user, :active)
 
-    visit "/access_requests"
+    visit "/admin/access_requests"
 
     expect { find_button("Reject").click }.to change { ActionMailer::Base.deliveries.count }.by(1)
   end

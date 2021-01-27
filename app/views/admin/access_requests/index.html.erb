@@ -50,14 +50,14 @@
               </td>
               <td class="p-2">
                 <div class="mr-2">
-                  <%= form_for user, url: access_request_path(user), html: {class: "d-inline-block"} do |f| %>
+                  <%= form_for user, url: admin_access_request_path(user), html: {class: "d-inline-block"} do |f| %>
                     <%= hidden_field_tag("user[status]", :active) %>
                     <%= f.button class: "btn btn-sm btn-primary" do %>
                       <%= octicon "zap" %>
                       Approve
                     <% end %>
                   <% end %>
-                  <%= form_for user, url: access_request_path(user), html: {class: "d-inline-block"} do |f| %>
+                  <%= form_for user, url: admin_access_request_path(user), html: {class: "d-inline-block"} do |f| %>
                     <%= hidden_field_tag("user[status]", :rejected) %>
                     <%= f.button class: "btn btn-sm btn-danger" do %>
                       <%= octicon "trashcan" %>
