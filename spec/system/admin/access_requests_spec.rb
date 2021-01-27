@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Access Requests", type: :system do
+RSpec.describe "Admin > Access Requests", type: :system do
   before do
     driven_by(:rack_test)
   end
