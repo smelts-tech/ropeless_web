@@ -42,7 +42,7 @@
                   <% if user == current_user %>
                     <p class="note">Unable to deactivate your own account</p>
                   <% else %>
-                    <%= form_for user, url: admin_access_request_path(user), html: {class: "d-inline-block"} do |f| %>
+                    <%= form_for user, url: admin_user_path(user), html: {class: "d-inline-block"} do |f| %>
                       <%= hidden_field_tag("user[status]", :deactivated) %>
                       <%= f.button class: "btn btn-sm btn-danger" do %>
                         <%= octicon "trashcan" %>
