@@ -1,6 +1,16 @@
 <% provide :head_tags do %>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+          integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+          crossorigin=""></script>
+  <script src="https://unpkg.com/esri-leaflet@3.0.1/dist/esri-leaflet.js"
+          integrity="sha512-JmpptMCcCg+Rd6x0Dbg6w+mmyzs1M7chHCd9W8HPovnImG2nLAQWn3yltwxXRM7WjKKFFHOAKjjF2SC4CgiFBg=="
+          crossorigin=""></script>
   <script>
-      document.addEventListener("DOMContentLoaded", function(){
+
+      document.addEventListener("DOMContentLoaded", function () {
           initMap(<%=params[:latitude]%>, <%=params[:longitude]%>, <%=@unique_devices.to_json.html_safe%>)
       });
   </script>
@@ -13,13 +23,13 @@
 <div class="container-lg mt-4">
   <div class="col-12">
     <%= form_tag location_search_index_path, method: :get do %>
-      <%= label_tag "Latitude" %><br />
-      <%= number_field_tag :latitude, params[:latitude], step: :any %><br />
-      <%= label_tag "Longitude" %><br />
-      <%= number_field_tag :longitude, params[:longitude], step: :any %><br />
-      <%= label_tag "Radius (miles)" %><br />
-      <%= number_field_tag :radius, params[:radius], step: :any %><br /><br />
-     <%= submit_tag 'Search', name: nil %>
+      <%= label_tag "Latitude" %><br/>
+      <%= number_field_tag :latitude, params[:latitude], step: :any %><br/>
+      <%= label_tag "Longitude" %><br/>
+      <%= number_field_tag :longitude, params[:longitude], step: :any %><br/>
+      <%= label_tag "Radius (miles)" %><br/>
+      <%= number_field_tag :radius, params[:radius], step: :any %><br/><br/>
+      <%= submit_tag 'Search', name: nil %>
     <% end %>
   </div>
 </div>
