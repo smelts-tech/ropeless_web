@@ -134,6 +134,7 @@ window.initMap = function(lat, lng, markers) {
               map.layerVis[e.name] = false;
           });
 */
+
           //add scale control:
           L.control.scale().addTo(map);
           //MousePosition:
