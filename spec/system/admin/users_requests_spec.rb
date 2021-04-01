@@ -16,7 +16,7 @@ RSpec.describe "Admin > Users", type: :system do
 
     visit "/admin/users"
 
-    expect(page).to have_current_path("/")
+    expect(page).to have_current_path("/dashboard")
   end
 
   it "shows information about users" do
