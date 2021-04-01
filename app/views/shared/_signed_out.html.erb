@@ -1,0 +1,23 @@
+<div class="container-lg">
+  <div class="Header color-bg-pantone col-12">
+    <div class="Header-item">
+      <%= link_to root_path, class: "Header-link f4 d-flex flex-items-center" do %>
+        <%= image_tag "smelts-logo.png", class: "mr-2" %>
+        <span class="text-uppercase">Seacloud</span>
+      <% end %>
+    </div>
+    <% unless devise_controller? %>
+      <div class="Header-item Header-item--full"></div>
+      <div class="Header-item">
+        <div class="container-lg mt-4">
+          <% user = User.new %>
+          <%= form_for(user, as: user, url: session_path(user)) do |f| %>
+            <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "email address" %>
+            <%= f.password_field :password, class: "form-control", placeholder: "password" %>
+            <%= f.submit "Log in", class: "btn" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

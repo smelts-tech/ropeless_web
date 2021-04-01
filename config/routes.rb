@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   get '/users', to: redirect("/users/sign_up")
   get '/thanks', to: "thanks#show"
 
-  root to: "dashboard#show"
+  root to: "landing#show"
 end

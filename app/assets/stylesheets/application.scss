@@ -38,3 +38,20 @@
   color: #333;
   font: 11px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
+
+.color-bg-pantone {
+  background-color: #D9D9D6;
+}
+
+.color-pantone {
+  color: #D9D9D6;
+}
+
+.btn {
+  background-color: #102740;
+  color: #FFF;
+
+  &:hover, &:focus {
+    background-color: lighten(#102740, 10);
+  }
+}

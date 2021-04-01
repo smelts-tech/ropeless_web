@@ -10,65 +10,33 @@
     <%= yield(:head_tags) %>
   </head>
 
-  <body>
-    <div class="Header">
-      <div class="Header-item">
-        <%= link_to root_path, class: "Header-link f4 d-flex flex-items-center" do %>
-          <%= image_tag "smelts-logo.png", class: "mr-2" %>
-          <span>Smelts</span>
-        <% end %>
-      </div>
-      <% if user_signed_in? %>
-        <div class="Header-item">
-          <input type="search" class="form-control input-dark" placeholder="permit number" />
-        </div>
-        <% if current_user_admin? %>
-          <div class="Header-item">
-            <%= octicon("person") %>
-            <%= link_to("User Management", admin_users_url, class: "ml-2 Header-link") %>
-          </div>
-          <div class="Header-item">
-            <%= octicon("check") %>
-            <%= link_to("Access Requests", admin_access_requests_url, class: "ml-2 Header-link") %>
-            <% if User.outstanding_access_requests.any? %>
-              <span class="Counter ml-2"><%= User.outstanding_access_requests.count %></span>
-            <% end %>
-          </div>
-        <% end %>
-        <div class="Header-item">
-          <%= octicon("list-unordered") %>
-          <%= link_to("Device File Uploads", device_uploads_path, class: "ml-2 Header-link") %>
-        </div>
-        <div class="Header-item">
-          <%= octicon("file") %>
-          <%= link_to("Upload Device File", new_device_upload_path, class: "ml-2 Header-link") %>
-        </div>
-        <div class="Header-item Header-item--full">
-          <%= octicon("search") %>
-          <%= link_to("Location Search", location_search_index_path, class: "ml-2 Header-link") %>
-        </div>
-        <div class="Header-item mr-0">
-          <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-        </div>
-      <% end %>
-    </div>
+  <body class="color-bg-pantone">
+    <% if !user_signed_in? %>
+      <%= render partial: "shared/signed_out" %>
+    <% end %>
+    <% if current_user_admin? %>
+      <%= render partial: "shared/admin_nav" %>
+    <% end %>
+    <% if current_user_fisher? %>
+      <%= render partial: "shared/fisher_nav" %>
+    <% end %>
     <% if flash.keys.any? %>
-    <div class="container-lg mt-2">
-      <div class="col-12">
-        <% if flash[:notice] %>
-          <p class="flash flash-warn"><%= flash[:notice] %></p>
-        <% end %>
-        <% if flash[:success] %>
-          <p class="flash flash-success"><%= flash[:success] %></p>
-        <% end %>
-        <% if flash[:alert] %>
-          <p class="flash flash-error"><%= flash[:alert] %></p>
-        <% end %>
-        <% if flash[:error] %>
-          <p class="flash flash-error"><%= flash[:error] %></p>
-        <% end %>
+      <div class="container-lg mt-2">
+        <div class="col-12">
+          <% if flash[:notice] %>
+            <p class="flash flash-warn"><%= flash[:notice] %></p>
+          <% end %>
+          <% if flash[:success] %>
+            <p class="flash flash-success"><%= flash[:success] %></p>
+          <% end %>
+          <% if flash[:alert] %>
+            <p class="flash flash-error"><%= flash[:alert] %></p>
+          <% end %>
+          <% if flash[:error] %>
+            <p class="flash flash-error"><%= flash[:error] %></p>
+          <% end %>
+        </div>
       </div>
-    </div>
     <% end %>
     <%= yield %>
   </body>
