@@ -60,7 +60,7 @@
                   <%= form_for user, url: admin_access_request_path(user), html: {class: "d-inline-block"} do |f| %>
                     <%= hidden_field_tag("user[status]", :rejected) %>
                     <%= f.button class: "btn btn-sm btn-danger" do %>
-                      <%= octicon "trashcan" %>
+                      <%= octicon "trash" %>
                       Reject
                     <% end %>
                   <% end %>

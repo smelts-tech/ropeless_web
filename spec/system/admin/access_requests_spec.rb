@@ -16,7 +16,7 @@ RSpec.describe "Admin > Access Requests", type: :system do
 
     visit "/admin/access_requests"
 
-    expect(page).to have_current_path("/")
+    expect(page).to have_current_path("/dashboard")
   end
 
   it "shows a counter with the number of outstanding access requests in the header/nav" do

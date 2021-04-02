@@ -3,10 +3,15 @@
     <h2>Upload a device file</h2>
 
     <%= form_for(@device_upload) do |f| %>
-      <div class="form-group<%= @device_upload.errors[:fisher].any? ? " errored" : "" %>">
-        <%= f.label :fisher_id %><br />
-        <%= f.select :fisher_id, Fisher.all.collect { |p| [ p.full_name, p.id ] }, {}, { class: "form-select" } %>
-      </div>
+      <% if current_user_admin? %>
+        <div class="form-group<%= @device_upload.errors[:fisher].any? ? " errored" : "" %>">
+          <%= f.label :fisher_id %><br />
+          <%= f.select :fisher_id, Fisher.all.collect { |p| [ p.full_name, p.id ] }, {}, { class: "form-select" } %>
+        </div>
+      <% else %>
+        <% # note that we'll probably want to detect/set this on the server (don't trust the value here) %>
+        <%= f.hidden_field :fisher_id, value: current_user.id %>
+      <% end %>
 
       <div class="form-group<%= @device_upload.errors[:uploaded_file].any? ? " errored" : "" %>">
         <%= f.label :uploaded_file %><br />

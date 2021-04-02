@@ -1,28 +1,10 @@
 @import '@primer/css/index.scss';
 
 // Type
-@font-face {
-  font-family: Inter;
+body {
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: $font-weight-normal;
-  src: local("Inter"), local("Inter-Regular"), url(font_path("Inter-Regular.woff")) format("woff");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: $font-weight-semibold;
-  src: local("Inter Medium"), local("Inter-Medium"), url(font_path("Inter-Medium.woff")) format("woff");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: $font-weight-bold;
-  src: local("Inter Bold"), local("Inter-Bold"), url(font_path("Inter-Bold.woff")) format("woff");
-  font-display: swap;
 }
 
 #map {
@@ -37,4 +19,21 @@
   margin:0;
   color: #333;
   font: 11px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.color-bg-pantone {
+  background-color: #D9D9D6;
+}
+
+.color-pantone {
+  color: #D9D9D6;
+}
+
+.btn {
+  background-color: #102740;
+  color: #FFF;
+
+  &:hover, &:focus {
+    background-color: lighten(#102740, 10);
+  }
 }
