@@ -6,26 +6,59 @@
 </div>
 
 <div class="container-lg mt-4 d-flex">
-  <div class="col-6">
-    <div class="Box">
-      <div class="Box-header">
-        <h3 class="Box-title">
-          Fishers
-        </h3>
-      </div>
-      <ul>
-        <% @fishers.each do |fisher| %>
-          <li class="Box-row d-flex flex-items-center">
-            <div class="flex-auto">
-              <strong><%= fisher.full_name %></strong>
-              <div class="text-small text-gray-light">
-                <%= pluralize(fisher.devices.unique.count, "device") %>
+  <div class="col-12">
+    <% if current_user_fisher? %>
+      <div class="Box">
+        <div class="Box-header">
+          <h3 class="Box-title">
+            Your Devices (<%= @devices.count %>)
+          </h3>
+        </div>
+        <div class="col-12">
+          <div class="d-flex">
+            <p class="p-1 flex-1">Device ID</p>
+            <p class="p-1 flex-1">Location</p>
+            <p class="p-1 flex-1">Date of Set</p>
+            <p class="p-1 flex-1">Date of Retrieval</p>
+          </div>
+          <% if @devices.any? %>
+            <% @devices.each do |device| %>
+              <div class="d-flex">
+                <div class="p-1 flex-1"><%= device.modem_id %></div>
+                <div class="p-1 flex-1"><%= device.geom.latitude %>, <%= device.geom.longitude %></div>
+                <div class="p-1 flex-1">N/A</div>
+                <div class="p-1 flex-1">N/A</div>
               </div>
+            <% end %>
+          <% else %>
+            <div class="d-flex">
+              <p class="p-1 flex-1">You have no devices.</p>
             </div>
-            <%= link_to "View", fisher_path(fisher), class: "btn btn-primary" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <% # admin or agency user %>
+      <div class="Box">
+        <div class="Box-header">
+          <h3 class="Box-title">
+            Fishers
+          </h3>
+        </div>
+        <ul>
+          <% @fishers.each do |fisher| %>
+            <li class="Box-row d-flex flex-items-center">
+              <div class="flex-auto">
+                <strong><%= fisher.full_name %></strong>
+                <div class="text-small text-gray-light">
+                  <%= pluralize(fisher.devices.unique.count, "device") %>
+                </div>
+              </div>
+              <%= link_to "View", fisher_path(fisher), class: "btn btn-primary" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </div>
