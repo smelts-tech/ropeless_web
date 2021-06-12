@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :device_uploads, controller: "device_upload"
   resources :location_search, controller: "location_search"
 
+  namespace :api do
+    resources :device_uploads, controller: "device_upload"
+  end
+
   namespace :admin do
     resources :access_requests, only: %w(index show update)
     resources :users, only: %w(index update)

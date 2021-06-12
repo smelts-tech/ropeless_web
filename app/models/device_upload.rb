@@ -5,6 +5,15 @@ class DeviceUpload < ApplicationRecord
 
   class DeviceUpload::InvalidDocument < StandardError; end
 
+  def data=(value)
+    @data = value
+    uploaded_file.attach(
+      io: StringIO.new(value),
+      filename: 'raw_data.xml',
+      content_type: 'text/xml'
+    )
+  end
+
   def process!
     begin
     doc = Nokogiri::XML(uploaded_file.download)
