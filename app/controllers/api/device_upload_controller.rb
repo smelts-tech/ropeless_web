@@ -1,27 +1,33 @@
 class Api::DeviceUploadController < ActionController::Base
+  skip_before_action :verify_authenticity_token
 
   def create
+    #temporarily tag with the first fisher until we have auth
+    params[:fisher_id] = Fisher.first.id
+
     @device_upload = DeviceUpload.new create_params
     @device_upload.data = params[:uploaded_file]
     @device_upload.save!
     @device_upload.process!
 
-    flash[:success] = "Device upload file saved!"
-
-    redirect_to device_uploads_url
+    response = { status: 'success'}
+    self.status = 200
+    self.response_body = response.to_json
   rescue DeviceUpload::InvalidDocument => error
     Rails.logger.error error.message
-    flash[:error] = "Something was wrong with that document. Please contact support via email and attach the file."
-    redirect_to new_device_upload_url
+    response = { status: 'error', message: "Invalid Document. #{error.message}"}
+    self.status = 400
+    self.response_body = response.to_json
   rescue ActiveRecord::RecordInvalid => error
     Rails.logger.error error.message
-    flash[:error] = "We weren't able to save that document."
-    redirect_to new_device_upload_url
+    response = { status: 'error', message: "Error during processing.  #{error.message}"}
+    self.status = 400
+    self.response_body = response.to_json
   end
 
   private
 
   def create_params
-    params.require(:device_upload).permit(:fisher_id, :uploaded_file)
+    params.permit(:fisher_id, :uploaded_file)
   end
 end

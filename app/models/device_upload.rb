@@ -17,10 +17,12 @@ class DeviceUpload < ApplicationRecord
   def process!
     begin
     doc = Nokogiri::XML(uploaded_file.download)
-    raise InvalidDocument unless fileValid?(doc)
     rescue Nokogiri::XML::SyntaxError => e
       raise InvalidDocument
     end
+
+    validateFile(doc)
+
     doc.xpath('//FishingData//item').each do |e|
       modem_id = e.xpath('Name').inner_text
       event_type = e.xpath('Type').inner_text
@@ -67,8 +69,8 @@ class DeviceUpload < ApplicationRecord
     end
   end
 
-  def fileValid?(doc)
-    #TODO - xslt validation here
-    return true
+  def validateFile(doc)
+    # must have at least one item
+    raise InvalidDocument.new "Missing FishingData/item records" if doc.xpath('//FishingData//item').length == 0
   end
 end
